@@ -21,7 +21,7 @@ fi
 info "using user $remote_user"
 
 # key option
-rsync_command="ssh"
+rsync_command="ssh -o BatchMode=yes" # Batchmode to prevent it from waiting on user input
 if [ -n "$WERCKER_RSYNC_DEPLOY_SSHKEY" ]
     rsync_command="$rsync_command -i $WERCKER_RSYNC_DEPLOY_SSHKEY"
 
