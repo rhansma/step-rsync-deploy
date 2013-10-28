@@ -1,3 +1,7 @@
 name: rsync-deploy
-version: 0.0.4
-description: Deploy your code to any server over ssh using rsync (just like scp, but with removal of old files)
+version: 0.0.5
+description: Deploy your code to any server over ssh using rsync
+keywords:
+  - scp
+  - ssh
+  - rsync
