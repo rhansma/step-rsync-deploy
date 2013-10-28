@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # host option
 if [ -z "$WERCKER_RSYNC_DEPLOY_HOST" ]
@@ -24,6 +25,7 @@ info "using user $remote_user"
 rsync_command="ssh -o BatchMode=yes" # Batchmode to prevent it from waiting on user input
 if [ -n "$WERCKER_RSYNC_DEPLOY_SSHKEY" ]
     rsync_command="$rsync_command -i $WERCKER_RSYNC_DEPLOY_SSHKEY"
+fi
 
 source_dir="./"
 
