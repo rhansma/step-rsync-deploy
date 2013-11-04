@@ -9,6 +9,7 @@ Deploy your code to any server over ssh using rsync. By default it will upload t
 * `directory` the remote directory to upload to
 * `user` (optional) the username used for the connection, default is `ubuntu`
 * `sshkey` the private key file to use for authentication
+* `source` (optional) specify which source to upload
 
 # Example
 

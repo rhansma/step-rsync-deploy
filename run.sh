@@ -29,6 +29,10 @@ then
 fi
 
 source_dir="./"
+if [ -n "$WERCKER_RSYNC_DEPLOY_SOURCE" ]; # check if source dir is specified
+then
+    source_dir=$WERCKER_RSYNC_DEPLOY_SOURCE
+fi
 
 info "Synchronizing $source_dir to $remote_user@$WERCKER_RSYNC_DEPLOY_HOST:$WERCKER_RSYNC_DEPLOY_DIRECTORY..."
 sync_output=$(rsync -urltv --delete --rsh="$rsync_command" "$source_dir" "$remote_user@$WERCKER_RSYNC_DEPLOY_HOST:$WERCKER_RSYNC_DEPLOY_DIRECTORY")
