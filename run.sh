@@ -28,11 +28,10 @@ then
     rsync_command="$rsync_command -i $WERCKER_RSYNC_DEPLOY_SSHKEY"
 fi
 
+source_dir="./"
 if [ -n "$WERCKER_RSYNC_DEPLOY_SOURCE" ]; # check if source dir is specified
 then
 	source_dir=$WERCKER_RSYNC_DEPLOY_SOURCE
-else
-	source_dir="./"
 fi
 
 info "Synchronizing $source_dir to $remote_user@$WERCKER_RSYNC_DEPLOY_HOST:$WERCKER_RSYNC_DEPLOY_DIRECTORY..."
