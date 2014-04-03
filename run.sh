@@ -23,7 +23,7 @@ info "using user $remote_user"
 
 # port option
 remote_port="22"
-if [ -n "$WERCKER_RSYNC_DEPLOY_SSHPORT" ]; # Check $WERCKER_BUNDLE_INSTALL exists and is not empty
+if [ -n "$WERCKER_RSYNC_DEPLOY_SSHPORT" ]; # Check $WERCKER_RSYNC_DEPLOY_SSHPORT exists and is not empty
 then
     remote_port="$WERCKER_RSYNC_DEPLOY_SSHPORT"
 fi
