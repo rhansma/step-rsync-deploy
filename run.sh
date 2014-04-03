@@ -21,8 +21,16 @@ then
 fi
 info "using user $remote_user"
 
+# port option
+remote_port="22"
+if [ -n "$WERCKER_RSYNC_DEPLOY_SSHPORT" ]; # Check $WERCKER_BUNDLE_INSTALL exists and is not empty
+then
+    remote_port="$WERCKER_RSYNC_DEPLOY_SSHPORT"
+fi
+info "using remote port $remote_port"
+
 # key option
-rsync_command="ssh -o BatchMode=yes" # Batchmode to prevent it from waiting on user input
+rsync_command="ssh -o BatchMode=yes -p $remote_port" # Batchmode to prevent it from waiting on user input
 if [ -n "$WERCKER_RSYNC_DEPLOY_SSHKEY" ]
 then
     rsync_command="$rsync_command -i $WERCKER_RSYNC_DEPLOY_SSHKEY"
