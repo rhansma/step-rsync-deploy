@@ -1,7 +1,6 @@
 # RSync deployment step
 Deploy your code to any server over ssh using rsync. By default it will upload the whole directory to the target.
 
-[![wercker status](https://app.wercker.com/status/9d72a4b411b0c34231e71fbac8c989e3/m "wercker status")](https://app.wercker.com/project/bykey/9d72a4b411b0c34231e71fbac8c989e3)
 
 # Options
 
