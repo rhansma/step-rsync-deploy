@@ -45,9 +45,9 @@ fi
 exclude_file = "rsync_exclude_file.txt"
 if [ -n "$WERCKER_RSYNC_DEPLOY_EXCLUDE_FILE" ]; # Check if exclude file is specified, if not create one
 then
-    touch "rsync_exclude_file.txt"
-else
     exclude_file = $WERCKER_RSYNC_DEPLOY_EXCLUDE_FILE
+else
+    touch "rsync_exclude_file.txt"
 fi
 
 info "Synchronizing $source_dir to $remote_user@$WERCKER_RSYNC_DEPLOY_HOST:$WERCKER_RSYNC_DEPLOY_DIRECTORY..."
