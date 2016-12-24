@@ -42,8 +42,16 @@ then
     source_dir=$WERCKER_RSYNC_DEPLOY_SOURCE
 fi
 
+exclude_file = "rsync_exclude_file.txt"
+if [ -n "$WERCKER_RSYNC_DEPLOY_EXCLUDE_FILE" ]; # Check if exclude file is specified, if not create one
+then
+    touch $exclude_file
+else
+    exclude_file = $WERCKER_RSYNC_DEPLOY_EXCLUDE_FILE
+fi
+
 info "Synchronizing $source_dir to $remote_user@$WERCKER_RSYNC_DEPLOY_HOST:$WERCKER_RSYNC_DEPLOY_DIRECTORY..."
-sync_output=$(rsync -rtlv --rsh="$rsync_command" "$source_dir" "$remote_user@$WERCKER_RSYNC_DEPLOY_HOST:$WERCKER_RSYNC_DEPLOY_DIRECTORY")
+sync_output=$(rsync -rtlv --delete --exclude-from="$exclude_file" --rsh="$rsync_command" "$source_dir" "$remote_user@$WERCKER_RSYNC_DEPLOY_HOST:$WERCKER_RSYNC_DEPLOY_DIRECTORY")
 if [[ $? -ne 0 ]];then
     warning $sync_output
     fail 'rsync failed';
