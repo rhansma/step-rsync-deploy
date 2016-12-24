@@ -48,5 +48,6 @@ if [[ $? -ne 0 ]];then
     warning $sync_output
     fail 'rsync failed';
 else
+    info $sync_output
     success "finished rsync synchronisation"
 fi
