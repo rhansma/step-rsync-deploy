@@ -42,7 +42,7 @@ then
     source_dir=$WERCKER_RSYNC_DEPLOY_SOURCE
 fi
 
-exclude_file = ""
+exclude=""
 if [ -n "$WERCKER_RSYNC_DEPLOY_EXCLUDE" ]; # Check if exclude file is specified, if not create one
 then
     exclude = $WERCKER_RSYNC_DEPLOY_EXCLUDE
