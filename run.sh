@@ -45,7 +45,7 @@ fi
 exclude_file = "rsync_exclude_file.txt"
 if [ -n "$WERCKER_RSYNC_DEPLOY_EXCLUDE_FILE" ]; # Check if exclude file is specified, if not create one
 then
-    touch $exclude_file
+    touch "rsync_exclude_file.txt"
 else
     exclude_file = $WERCKER_RSYNC_DEPLOY_EXCLUDE_FILE
 fi
