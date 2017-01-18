@@ -9,7 +9,7 @@ Deploy your code to any server over ssh using rsync. By default it will upload t
 * `user` (optional) the username used for the connection, default is `ubuntu`
 * `sshport` (optional) the port that ssh uses for the connection, default is `22`
 * `source` (optional) specify which source directory to upload, default is `./`
-* `exclude_file` (optional) specify files to exclude during rsync, default is `rsync_exclude_file.txt`
+* `exclude` (optional) a file which specifies files to exclude during rsync
 
 # Example
 
